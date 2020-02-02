@@ -1,6 +1,6 @@
 #include "jni.h"
 #include "Profiler.h"
-#ifdef _WIN64
+#ifdef _WIN32
 #include <windows.h>
 #include <psapi.h>
 #endif
@@ -8,7 +8,7 @@
 
 JNIEXPORT jlong JNICALL Java_Profiler_totalProcessVirtualMemory
 (JNIEnv*, jobject) {
-#ifdef _WIN64
+#ifdef _WIN32
     PROCESS_MEMORY_COUNTERS ppsmemCounters;
     BOOL result = GetProcessMemoryInfo(GetCurrentProcess(),
         &ppsmemCounters,
